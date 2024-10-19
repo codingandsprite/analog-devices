@@ -57,7 +57,7 @@ if __name__ == "__main__":
             r"""<language>en-us</language>""",
             r"""<pubDate>"""+NOW.strftime("%a, %d %b %Y %H:%M:%S GMT")+r"""</pubDate>""",
             r"""<lastBuildDate>"""+NOW.strftime("%a, %d %b %Y %H:%M:%S GMT")+r"""</lastBuildDate>""",
-            "\n".join([r"""<item><title>"""+x.title+r"""</title><link>"""+x.link+r"""</link><pubDate>"""+x.date+r"""</pubDate></item>""" for x in STREAM]),
+            "\n".join([r"""<item><title><![CDATA["""+x.title+r"""]]></title><link>"""+x.link+r"""</link><pubDate>"""+x.date+r"""</pubDate></item>""" for x in STREAM]),
             r"""</channel>""",
             r"""</rss>""",
     ])
