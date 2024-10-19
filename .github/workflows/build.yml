@@ -16,8 +16,7 @@ jobs:
         source .venv/bin/activate
         pip install -r requirements.txt
         mkdir -p docs
-        touch docs/main.rss
         python rss.py > docs/main.rss
-        git add docs/main.rss
-        git commit docs/main.rss -m "Generated RSS file"
+        git add docs
+        git commit -m "Generated RSS file"
         git push
