@@ -45,7 +45,6 @@ for page in range(1, (LAST_PAGE+1)):
 
 STREAM = sorted([POSTS[key] for key in POSTS.keys()], key=lambda x: x.date, reverse=True)
 
-
 if __name__ == "__main__":
 
     NOW = datetime.now()
@@ -58,7 +57,7 @@ if __name__ == "__main__":
             r"""<language>en-us</language>""",
             r"""<pubDate>"""+NOW.strftime("%a, %d %b %Y %H:%M:%S GMT")+r"""</pubDate>""",
             r"""<lastBuildDate>"""+NOW.strftime("%a, %d %b %Y %H:%M:%S GMT")+r"""</lastBuildDate>""",
-            r"".join([r"""<item><title>"""+x.title+r"""</title><link>"""+x.link+r"""</link><pubDate>"""+x.date+r"""</pubDate></item>""" for x in STREAM]),
+            "\n".join([r"""<item><title>"""+x.title+r"""</title><link>"""+x.link+r"""</link><pubDate>"""+x.date+r"""</pubDate></item>""" for x in STREAM]),
             r"""</channel>""",
             r"""</rss>""",
     ])
