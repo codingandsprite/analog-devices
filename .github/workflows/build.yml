@@ -10,15 +10,11 @@ jobs:
       with:
         repository: 'codingandsprite/rss'
     - run: |
-        git pull
-        sudo apt-get update
-        sudo apt-get install -y python3
+        git config user.name "github-actions[bot]"
+        git config user.email "bot@github.com"
         python3 -m venv .venv
         source .venv/bin/activate
         pip install -r requirements.txt
-        python3 rss.py > .rss
-        git config user.name "github-actions[bot]"
-        git config user.email "bot@github.com"
-        git add ./.rss
-        git commit -m "Generated RSS file"
+        python rss.py > .rss
+        git commit .rss -m "Generated RSS file"
         git push
